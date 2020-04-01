@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +8,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
@@ -68,5 +69,3 @@ textarea {
   border: 1px solid #ccc;
   margin: 1.2rem 0;
 }
-
-/*# sourceMappingURL=styles.css.map */

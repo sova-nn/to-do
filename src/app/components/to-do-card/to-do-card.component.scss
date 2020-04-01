@@ -1,0 +1,36 @@
+.card {
+  background-color: antiquewhite;
+  width: 300px;
+  height: 210px;
+  border: 3px dashed cadetblue;
+  padding: 5px;
+  border-radius: 7px;
+  margin: 20px;
+}
+
+.priority {
+  max-height: 30px;
+  max-width: 150px;
+  font-size: 0.9rem;
+  display: inline;
+  margin: 0;
+}
+
+.red {
+  background-color: red;
+}
+
+br {
+  display: block;
+  margin: 10px 0;
+}
+
+p {
+  margin: 5px 5px;
+}
+
+.to-do {
+  border: 2px dashed cadetblue;
+  background-color: gainsboro;
+  border-radius: 7px;
+}

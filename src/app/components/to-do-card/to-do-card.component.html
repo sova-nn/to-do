@@ -1,0 +1,17 @@
+<div class="card" [ngStyle]="{backgroundColor:card.cardClass}">
+  <h3><b>Необходимо:</b></h3>
+  <div class="to-do">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, officiis quam sit suscipit totam vero?</p>
+  </div>
+  <p>Важность:
+    <select class="priority"
+            [(ngModel)]="card.priority" (ngModelChange)="onChange()">
+      <option disabled>Установить важность</option>
+      <option *ngFor="let item of priorities" [value]="item">{{item}}</option>
+    </select>
+  </p>
+  <p></p>
+  <button class="btn">Сделано</button>
+  <button class="btn">Неактуально</button>
+</div>
+
