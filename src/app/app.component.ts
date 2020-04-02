@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
-export interface Post {
-  title: string;
-  text: string;
+export interface IToDos {
   id?: number;
+  text: string;
+  done: boolean;
+  priority: string;
 }
+
 
 @Component({
   selector: 'app-root',

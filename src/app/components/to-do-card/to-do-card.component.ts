@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {IToDos} from '../../app.component';
 
-interface ICard {
-  priority: string;
-  cardClass: string;
-}
+const PRIORITY_COLOR_HIGH = '#FF9966';
+const PRIORITY_COLOR_MEDIUM = '#CCCCFF';
+const PRIORITY_COLOR_LOW = '#D5FFD5';
 
 @Component({
   selector: 'app-to-do-card',
@@ -11,22 +11,25 @@ interface ICard {
   styleUrls: ['./to-do-card.component.css']
 })
 export class ToDoCardComponent implements OnInit {
-  card: ICard = {
-    priority: '',
-    cardClass: 'antiquewhite',
-  };
-  priorities: string[] = ['Высокая', 'Средняя', 'Низкая'];
-  cardClasses: string[] = ['#FF9966', '#CCCCFF', '#D5FFD5'];
+  @Input() toDoCard: IToDos;
+  @Output() onPale: EventEmitter<IToDos> = new EventEmitter<IToDos>();
 
-  constructor() { }
+  priorities: string[] = ['Высокая', 'Средняя', 'Низкая'];
+  cardClasses: string[] = [PRIORITY_COLOR_HIGH, PRIORITY_COLOR_MEDIUM, PRIORITY_COLOR_LOW];
+  cardClass = 'antiquewhite';
+  constructor() {}
 
   ngOnInit(): void {
+    this.cardClass = this.cardClasses.find((el, idx) => idx === this.priorities.indexOf(this.toDoCard.priority));
   }
 
   onChange() {
-    console.log(this.card.priority);
-    this.card.cardClass = this.cardClasses.find((el, idx) => idx === this.priorities.indexOf(this.card.priority));
-    console.log(this.card.cardClass);
+    this.cardClass = this.cardClasses.find((el, idx) => idx === this.priorities.indexOf(this.toDoCard.priority));
+  }
+
+  onPaleCard() {
+    this.toDoCard.done = true;
+    this.onPale.emit(this.toDoCard);
   }
 
 }

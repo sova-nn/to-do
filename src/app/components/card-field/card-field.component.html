@@ -1,1 +1,9 @@
-<p>card-field works!</p>
+<app-input-to-do-card (onAdd)="updateToDos($event)"></app-input-to-do-card>
+<hr>
+<hr>
+<app-to-do-card
+  *ngFor="let item of toDos"
+  [toDoCard]="item"
+  (onPale)="onPop($event)"
+></app-to-do-card>
+
