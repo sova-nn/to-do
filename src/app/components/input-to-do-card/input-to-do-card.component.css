@@ -1,3 +1,9 @@
+.input-card-field {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 .card {
   background-color: antiquewhite;
   width: 300px;
@@ -5,7 +11,12 @@
   border: 3px dashed cadetblue;
   padding: 5px;
   border-radius: 7px;
-  margin: 20px;
+  margin: 0 auto;
+  position: fixed;
+  top: 200px;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .priority {

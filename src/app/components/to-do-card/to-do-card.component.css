@@ -29,6 +29,7 @@ p {
   border: 2px dashed cadetblue;
   background-color: gainsboro;
   border-radius: 7px;
+  height: 5.5rem;
 }
 
 /*# sourceMappingURL=to-do-card.component.css.map */

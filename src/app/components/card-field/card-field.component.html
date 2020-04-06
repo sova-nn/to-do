@@ -1,9 +1,11 @@
 <app-input-to-do-card (onAdd)="updateToDos($event)"></app-input-to-do-card>
-<hr>
-<hr>
-<app-to-do-card
-  *ngFor="let item of toDos"
-  [toDoCard]="item"
-  (onPale)="onPop($event)"
-></app-to-do-card>
+<div>
+  <app-to-do-card
+    *ngFor="let item of toDos"
+    [toDoCard]="item"
+    (onPale)="onPop($event)"
+    [style.zIndex]="1"
+  ></app-to-do-card>
+</div>
+
 

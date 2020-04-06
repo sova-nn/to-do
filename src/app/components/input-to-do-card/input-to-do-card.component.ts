@@ -1,5 +1,6 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {IToDos} from '../../app.component';
+import {VisibleService} from '../../servises/visible.service';
 
 const PRIORITY_COLOR_HIGH = '#FF9966';
 const PRIORITY_COLOR_MEDIUM = '#CCCCFF';
@@ -11,17 +12,22 @@ const PRIORITY_COLOR_LOW = '#D5FFD5';
   styleUrls: ['./input-to-do-card.component.css']
 })
 export class InputToDoCardComponent implements OnInit {
-
   @Output() onAdd: EventEmitter<IToDos> = new EventEmitter<IToDos>();
+
   priority = '';
   priorities: string[] = ['Высокая', 'Средняя', 'Низкая'];
   cardClasses: string[] = [PRIORITY_COLOR_HIGH, PRIORITY_COLOR_MEDIUM, PRIORITY_COLOR_LOW];
   cardClass = 'antiquewhite';
   text = '';
+  isVisible = false;
 
-  constructor() { }
+  constructor(private getInputVisible: VisibleService) {
+  }
 
   ngOnInit(): void {
+    this.getInputVisible.isVisibleStatus.subscribe((visible: boolean) => {
+      this.isVisible = visible;
+    });
   }
 
   onAddCard() {
@@ -34,6 +40,7 @@ export class InputToDoCardComponent implements OnInit {
       this.onAdd.emit(card);
       this.text = '';
       this.cardClass = 'antiquewhite';
+      this.isVisible = false;
     }
   }
 

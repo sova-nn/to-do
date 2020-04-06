@@ -1,24 +1,28 @@
-<div class="card" [ngStyle]="{backgroundColor: cardClass}">
-  <h3><b>Необходимо:</b></h3>
-  <div class="to-do">
-    <p><textarea name="text"
-                 placeholder="Введите новую задачу!"
-                 maxlength="150" [style]="{height: '75px'}"
-                 required
-                 autofocus
-                 [(ngModel)]="text"
-    ></textarea></p>
+<div class="input-card-field"
+     [ngStyle]="isVisible?{background: 'rgba(102, 102, 102, 0.5)'}:{}"
+     [style.display]="isVisible?'block':'none'">
+  <div class="card" [ngStyle]="{backgroundColor: cardClass}">
+    <h3><b>Необходимо:</b></h3>
+    <div class="to-do">
+      <p><textarea name="text"
+                   placeholder="Введите новую задачу!"
+                   maxlength="150" [style]="{height: '75px'}"
+                   required
+                   autofocus
+                   [(ngModel)]="text"
+      ></textarea></p>
+    </div>
+    <p>Важность:
+      <select class="priority"
+              [(ngModel)]="priority"
+              (change)="onChange()">
+        <option disabled>Установить важность</option>
+        <option *ngFor="let item of priorities" [value]="item">{{item}}</option>
+      </select>
+    </p>
+    <p></p>
+    <button class="btn" (click)="onAddCard()">Добавить</button>
   </div>
-  <p>Важность:
-    <select class="priority"
-            [(ngModel)]="priority"
-            (change)="onChange()">
-      <option disabled>Установить важность</option>
-      <option *ngFor="let item of priorities" [value]="item">{{item}}</option>
-    </select>
-  </p>
-  <p></p>
-  <button class="btn" (click)="onAddCard()">Добавить</button>
 </div>
 
 

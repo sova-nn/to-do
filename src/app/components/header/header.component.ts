@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {VisibleService} from '../../servises/visible.service';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isInputVisible: false;
-  constructor() { }
+  constructor(public setInputVisible: VisibleService) {}
 
   ngOnInit(): void {
   }
