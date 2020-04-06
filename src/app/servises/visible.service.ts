@@ -11,6 +11,5 @@ export class VisibleService {
 
   setIsVisible(value: boolean) {
     this.isVisibleStatus.next(value);
-    console.log(this.isVisibleStatus);
   }
 }

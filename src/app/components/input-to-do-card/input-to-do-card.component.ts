@@ -48,4 +48,11 @@ export class InputToDoCardComponent implements OnInit {
     this.cardClass = this.cardClasses.find((el, idx) => idx === this.priorities.indexOf(this.priority));
   }
 
+  onClick(e) {
+    if (e.target.getAttribute('class') === 'input-card-field') {
+      this.isVisible = false;
+    }
+    e.stopPropagation();
+  }
+
 }
